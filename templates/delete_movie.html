@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Movie</title>
+</head>
+<body>
+    <h1>Delete Movie</h1>
+
+    <p>Are you sure you want to delete <strong>{{ movie.title }}</strong> ({{ movie.release_year }})?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+
+    <br>
+    <a href="{% url 'index' %}">Cancel</a>
+</body>
+</html>
