@@ -7,7 +7,7 @@ pollSCM('H/2 * * * *')
 stages {
 stage('Checkout') {
 steps {
-git branch: 'main', url: ''
+git branch: 'main', url: "https://github.com/RafikMikkawi/Rafiks-Repository" 
 }
 }
 stage('Build in Minikube Docker') {
@@ -17,7 +17,7 @@ REM === Switch Docker to Minikube Docker ===
 call minikube docker-env --shell=cmd > docker_env.bat
 call docker_env.bat
 REM === Build Django image inside Minikube Docker ===
-docker build -t mydjangoapp:latest .
+docker build -t my-django-app:latest .
 '''
 }
 }
@@ -26,7 +26,9 @@ steps {
 bat '''
 REM === Apply the updated deployment manifest ===
 kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
 REM === Ensure the rollout completes ===
+kubectl rollout restart deployment/django-deployment
 kubectl rollout status deployment/django-deployment
 '''
 }
