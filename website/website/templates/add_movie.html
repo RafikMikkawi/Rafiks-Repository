@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Movie</title>
+</head>
+<body>
+    <h1>Add Movie</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <br>
+    <a href="{% url 'index' %}">Back to Movies List</a>
+</body>
+</html>

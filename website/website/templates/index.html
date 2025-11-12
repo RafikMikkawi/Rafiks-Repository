@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies List</title>
+</head>
+<body>
+    <h1>Rafik Movies List</h1>
+    <a href="{% url 'add_movie' %}">Add New Movie</a>
+    <hr>
+
+    {% if movies %}
+        <ul>
+        {% for movie in movies %}
+            <li>
+                <strong>{{ movie.title }}</strong> ({{ movie.release_year }})  
+                - {{ movie.genre }}  
+                - Directed by {{ movie.director }}
+                <br>
+                <a href="{% url 'edit_movie' movie.id %}">Edit</a> | 
+                <a href="{% url 'delete_movie' movie.id %}">Delete</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No movies found. <a href="{% url 'add_movie' %}">Add one now</a>.</p>
+    {% endif %}
+</body>
+</html>
