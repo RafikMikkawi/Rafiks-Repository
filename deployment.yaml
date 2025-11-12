@@ -1,6 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+<<<<<<< HEAD
+name: django-deployment
+spec:
+replicas: 1
+selector:
+matchLabels:
+app: django-app
+template:
+metadata:
+labels:
+app: django-app
+spec:
+containers:
+- name: django-container
+image: mydjangoapp:latest
+imagePullPolicy: Never
+ports:
+- containerPort: 8000
+=======
   name: django-deployment
 spec:
   replicas: 1
@@ -18,3 +37,4 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 8000
+>>>>>>> 88f66120ae9ba3334ca0ad1a304a8503ee899b21

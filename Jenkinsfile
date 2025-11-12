@@ -15,6 +15,9 @@ steps {
 bat '''
 REM === Switch Docker to Minikube Docker ===
 call minikube docker-env --shell=cmd > docker_env.bat
+<<<<<<< HEAD
+call docker_env.bat
+=======
 call docker_env.bat
 REM === Build Django image inside Minikube Docker ===
 docker build -t my-django-app:latest .
@@ -35,3 +38,4 @@ kubectl rollout status deployment/django-deployment
 }
 }
 }
+>>>>>>> 88f66120ae9ba3334ca0ad1a304a8503ee899b21
